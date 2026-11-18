@@ -1,0 +1,30 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+	<EnableHarmony>true</EnableHarmony>
+    <TargetFramework>net6.0</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+	<GamePath>D:\kksk\steam\steamapps\common\Stardew Valley</GamePath>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Compile Remove="新建文件夹\**" />
+    <Compile Remove="设计及图片资源\**" />
+    <EmbeddedResource Remove="新建文件夹\**" />
+    <EmbeddedResource Remove="设计及图片资源\**" />
+    <None Remove="新建文件夹\**" />
+    <None Remove="设计及图片资源\**" />
+    <!-- 修复 CS0579: 排除两个第三方库自带的 AssemblyInfo.cs,它们和 SDK 自动生成的程序集信息重复 -->
+    <Compile Remove="lib\websocket-sharp\AssemblyInfo.cs" />
+    <Compile Remove="lib\QRCoder\Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Pathoschild.Stardew.ModBuildConfig" Version="4.4.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="lib\" />
+  </ItemGroup>
+</Project>
